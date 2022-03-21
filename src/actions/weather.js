@@ -7,7 +7,7 @@ const handleResponse = (response) => {
 const getWeather = (lat, long) => {
     return (
         fetch(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=6dc03e881dc8b962bc1a29daeb884c5b`
+            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=6dc03e881dc8b962bc1a29daeb884c5b&units=metric`
         )
         .then((res) => {
             handleResponse(res);

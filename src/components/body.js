@@ -1,12 +1,20 @@
+import DateData from "./date";
 
-
-function body({weatherData}) {
+function Body({weatherData}) {
     return (
         <main className="body">
-            {JSON.stringify(weatherData.name)}
-            <p>this is the body</p>
+            <div className="temp"><p>{weatherData.main.temp}</p><span> ℃</span></div>
+            <div className="more">
+                <div className="name"> 
+                    <p>{weatherData.name}</p>
+                </div>
+                <div className="date">
+                    <DateData />
+                </div>
+            </div>
+            <div className="icon"></div>
         </main>
     )
 }
 
-export default body;
+export default Body;

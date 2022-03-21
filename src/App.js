@@ -1,8 +1,9 @@
 import "./styling/main.scss";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 // components
 import SidePanel from "./components/SidePanel";
+import Header from "./components/header";
 import Body from "./components/body";
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -38,9 +39,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <SidePanel />
+      <Header />
       {(typeof weatherData.main != 'undefined') ? (
-        <Body weatherData={weatherData}/>
+        <Fragment>
+          <Body weatherData={weatherData}/> 
+          <SidePanel />
+        </Fragment>
       ): (
         <div className='loader'>
           <Spinner animation="border" role="status">
