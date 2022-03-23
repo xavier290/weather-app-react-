@@ -1,4 +1,5 @@
 import DateData from "./date";
+import SidePanel from "./sidePanel";
 
 function Body({weatherData}) {
     return (
@@ -13,6 +14,7 @@ function Body({weatherData}) {
                 </div>
             </div>
             <div className="icon"></div>
+            <SidePanel open={true} weatherData={weatherData} />
         </main>
     )
 }
