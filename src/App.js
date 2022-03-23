@@ -2,7 +2,7 @@ import "./styling/main.scss";
 import React, { Fragment, useEffect, useState } from "react";
 
 // components
-import SidePanel from "./components/SidePanel";
+// import SidePanel from "./components/SidePanel";
 import Header from "./components/header";
 import Body from "./components/body";
 import Spinner from 'react-bootstrap/Spinner';
@@ -33,17 +33,18 @@ const App = () => {
       
     Weather.getWeather(lat, long)
     .then((data) => {
+      console.log(data);
       setWeatherData(data);
-    })
+    });
   }, [lat, long]);
 
   return (
     <div className="App">
-      <Header />
       {(typeof weatherData.main != 'undefined') ? (
         <Fragment>
+          <Header weatherData={weatherData}/>
           <Body weatherData={weatherData}/> 
-          <SidePanel />
+          {/* <SidePanel weatherData={weatherData}/> */}
         </Fragment>
       ): (
         <div className='loader'>
