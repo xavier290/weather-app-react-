@@ -1,7 +1,4 @@
-$tablet : 768px;
-$laptop: 1024px;
-
-@media (min-width: 400px) and (max-width: $tablet) {
+@media (min-width: 400px) and (max-width: 768px) {
     header {
         .menu {
             h2 {
@@ -14,7 +11,7 @@ $laptop: 1024px;
     }
 }
 
-@media (min-width: 550px) and (max-width: $tablet) {
+@media (min-width: 550px) and (max-width: 768px) {
     .body {
         .temp {
             font-size: 38px !important;
@@ -36,7 +33,7 @@ $laptop: 1024px;
     }
 }
 
-@media (min-width: 650px) and (max-width: $laptop) {
+@media (min-width: 650px) and (max-width: 1024px) {
     header {
         .menu {
             .cnty {
@@ -90,7 +87,7 @@ $laptop: 1024px;
     }
 }
 
-@media (min-width: $laptop) {
+@media (min-width: 1024px) {
     .App {
         display: grid;
         grid-template-columns: 70% 30%;
@@ -105,7 +102,6 @@ $laptop: 1024px;
                     font-size: 22px !important;
                 }
             }
-
             .menu, .menu-btn {
                 display: none !important;
             }
@@ -119,13 +115,11 @@ $laptop: 1024px;
                     font-size: 112px !important;
                 }
             }
-
             .name {
                 p {
                     margin-bottom: 22px !important;
                 }
             }
-
             .icon {
                 img {
                     width: 60px !important;
@@ -142,8 +136,6 @@ $laptop: 1024px;
             padding: 2% 4%;
 
             .menu {
-                color: #fff !important;
-
                 .cnty, .img {
                     display: none !important;
                 }
