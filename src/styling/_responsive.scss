@@ -1,0 +1,168 @@
+$tablet : 768px;
+$laptop: 1024px;
+
+@media (min-width: 400px) and (max-width: $tablet) {
+    header {
+        .menu {
+            h2 {
+                font-size: 24px !important;
+            }
+            li {
+                font-size: 20px !important;
+            }
+        }
+    }
+}
+
+@media (min-width: 550px) and (max-width: $tablet) {
+    .body {
+        .temp {
+            font-size: 38px !important;
+
+            p {
+                font-size: 78px !important;
+            }
+        }
+        .name {
+            p {
+                font-size: 34px !important;
+            }
+        }
+        .date {
+            p {
+                font-size: 18px !important;
+            }
+        }
+    }
+}
+
+@media (min-width: 650px) and (max-width: $laptop) {
+    header {
+        .menu {
+            .cnty {
+                font-size: 38px !important;
+            }
+            h2 {
+                font-size: 32px !important;
+            }
+
+            li {
+                font-size: 24px !important;
+            }
+        }
+    }
+    .body {
+        .temp {
+            font-size: 44px !important;
+            
+            p {
+                font-size: 104px !important;
+            }
+        }
+        .name {
+            p {
+                font-size: 38px !important;
+            }
+        }
+        .date {
+            p {
+                font-size: 20px !important;
+            }
+        }
+    }
+}
+
+@media (min-width: 820px) {
+    .name {
+        p {
+            margin-bottom: 9px !important;
+        }
+    }
+    .icon {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 70px;
+        }
+    }
+}
+
+@media (min-width: $laptop) {
+    .App {
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-template-rows: 10vh 90vh;
+        grid-template-areas: "a  b" " c b";
+
+        header {
+            grid-area: a;
+
+            .logo {
+                p {
+                    font-size: 22px !important;
+                }
+            }
+
+            .menu, .menu-btn {
+                display: none !important;
+            }
+        }
+
+        main {
+            grid-area: c;
+
+            .temp {
+                p {
+                    font-size: 112px !important;
+                }
+            }
+
+            .name {
+                p {
+                    margin-bottom: 22px !important;
+                }
+            }
+
+            .icon {
+                img {
+                    width: 60px !important;
+                }
+                p {
+                    font-size: 14px !important;
+                }
+            }
+        }
+
+        .sidepanel {
+            background: linear-gradient(180deg, #022652 0%, #34a0b6 100%);
+            grid-area: b;
+            padding: 2% 4%;
+
+            .menu {
+                color: #fff !important;
+
+                .cnty, .img {
+                    display: none !important;
+                }
+
+                h2 {
+                    margin: 30px 0;
+                }
+
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 15px !important;
+                    list-style: none !important;
+
+                    &:first-child {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+}

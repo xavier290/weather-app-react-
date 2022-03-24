@@ -1,6 +1,6 @@
 const handleResponse = (response) => {
     if (!response.ok) {
-      throw new Error("Please Enable your Location in your browser!");
+      throw new Error("Error! seems like we had a problem, try again pls");
     }
 }
 

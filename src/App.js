@@ -33,7 +33,7 @@ const App = () => {
       
     Weather.getWeather(lat, long)
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       setWeatherData(data);
     });
   }, [lat, long]);
