@@ -19,16 +19,8 @@ const getWeather = (lat, long) => {
     );
 }
 
-
-const handleLocationError = (browserHasGeolocation) => {
-    let infoWindow = browserHasGeolocation ? "Error: Pls enable your location in your browser." 
-                                           : "Error: Your browser doesn't support geolocation."
-    alert(infoWindow);
-}
-
 const Weather = {
     getWeather,
-    handleLocationError
 }
 
 export default Weather;

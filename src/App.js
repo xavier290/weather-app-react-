@@ -2,10 +2,10 @@ import "./styling/main.scss";
 import React, { Fragment, useEffect, useState } from "react";
 
 // components
-// import SidePanel from "./components/SidePanel";
 import Header from "./components/header";
 import Body from "./components/body";
-import Spinner from 'react-bootstrap/Spinner';
+// import Loader from "./components/Loader";
+import ErrorHandler from "./components/ErrorHanlder";
 
 // actions
 import  Weather from "./actions/weather";
@@ -14,6 +14,7 @@ const App = () => {
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
   const [weatherData, setWeatherData] = useState([]);
+  const [error, setError] = useState(null);
   
   useEffect(() => {
     if (navigator.geolocation)  {
@@ -22,37 +23,38 @@ const App = () => {
               setLat(position.coords.latitude);
               setLong(position.coords.longitude);
           }, () => {
-              Weather.handleLocationError(true); // in case there were any errors while trying to get location
+            setError('pls enable the geolocation service to continue using the website');
+            // alert.show(error);   
           }
-      )
+      );
     } else {
-        Weather.handleLocationError(false); // for when browser doesn't support geolocation
+      setError(" we're so sorry! but it looks like your browser doesn't support geolocation");
+      // alert.show(error);
     }
-
+    // console.log(error);
     if(lat == "" || long == "") return;
       
     Weather.getWeather(lat, long)
     .then((data) => {
       // console.log(data);
       setWeatherData(data);
+    })
+    .catch((err) => {
+      setError(err.message);
+      // alert.show(error);
     });
-  }, [lat, long]);
+  }, [lat, long, error]);
 
   return (
     <div className="App">
-      {(typeof weatherData.main != 'undefined') ? (
-        <Fragment>
-          <Header weatherData={weatherData}/>
-          <Body weatherData={weatherData}/> 
-          {/* <SidePanel weatherData={weatherData}/> */}
-        </Fragment>
-      ): (
-        <div className='loader'>
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </div>
-      )}
+        {(typeof weatherData.main != 'undefined') ? (
+          <Fragment>
+            <Header weatherData={weatherData}/>
+            <Body weatherData={weatherData} />
+          </Fragment>
+        ) : (
+          <ErrorHandler message={error} />
+        )}
     </div>
   );
 }

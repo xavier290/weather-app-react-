@@ -9,6 +9,13 @@
     color: #fff;
 }
 
+.alert {
+    position: absolute !important;
+    top: 0%;
+    color: #fff !important;
+    background-color: #72020c !important;
+}
+
 p, ul, li {
     padding: 0% !important;
     margin: 0 !important;
@@ -33,6 +40,12 @@ p, ul, li {
 .App {
     overflow: hidden;
     background: linear-gradient(180deg, #1c5ba7 0%, #00abce 100%);
+
+    .loader {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+    }
     
     .header {
         padding: 2% 4%;
